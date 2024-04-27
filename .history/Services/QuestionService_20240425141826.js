@@ -1,0 +1,23 @@
+const expressAsyncHandler = require("express-async-handler");
+const QuestionModel = require("../Models/QuestionSchema");
+const factory = require("./FactoryHandler");
+
+exports.createQuestionService = expressAsyncHandler(async (req, res, next) => {
+  const { description alternatives ,category , slug } = req.body;
+  const { alternatives } = req.body;
+  const { category } = req.body;
+
+  const question = await QuestionModel.create({
+    description,
+    alternatives,
+    category
+  });
+  await question.save();
+  res.status(200).json({
+    status: "success",
+
+    data: question,
+  });
+});
+exports.getAllQuestionService = factory.getAll(QuestionModel);
+exports.getOneQuestionService = factory.getOne(QuestionModel);
