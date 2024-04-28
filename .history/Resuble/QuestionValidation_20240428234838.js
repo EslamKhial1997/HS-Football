@@ -24,12 +24,12 @@ exports.getQuestionByIdValidator = [
 ];
 exports.updateQuestionValidation = [
   check("id").isMongoId().withMessage("Sorry ID Not Available To Update"),
-  body("description")
-    .optional()
-    .custom((val, { req }) => {
-      req.body.slug = slugify(val);
-      return true;
-    }),
+  // body("description")
+  //   .optional()
+  //   .custom((val, { req }) => {
+  //     req.body.slug = slugify(val);
+  //     return true;
+  //   }),
   MiddlewareValidator,
 ];
 exports.deleteQuestionByIdValidator = [

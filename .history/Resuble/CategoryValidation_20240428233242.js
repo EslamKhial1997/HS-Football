@@ -3,7 +3,6 @@ const { default: slugify } = require("slugify/slugify");
 const {
   MiddlewareValidator,
 } = require("../Middleware/MiddlewareValidatorError");
-const categoryModel = require("../Models/CategoriesSchema");
 exports.createCategoryValidator = [
   body("name").notEmpty().withMessage("is required"),
 
@@ -12,7 +11,7 @@ exports.createCategoryValidator = [
     return true;
   }),
   body("name").custom((val) =>
-    categoryModel.findOne({ name: val }).then((Category) => {
+    c.findOne({ name: val }).then((Category) => {
       if (Category) {
         return Promise.reject(new Error("Name Category Already in Used"));
       }

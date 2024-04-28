@@ -14,7 +14,6 @@ const {
   deleteCategoryByIdValidator,
   createCategoryValidator,
   getCategoryByIdValidator,
-  updateCategoryValidation,
 } = require("../Resuble/CategoryValidation");
 const Routes = Router();
 Routes.use("/:categoryId/question", RouetsQuestion);
@@ -23,7 +22,7 @@ Routes.route("/")
   .get(getAllCategories);
 Routes.route("/:id")
   .get(getCategoryByIdValidator,getOneCategory)
-  .put(uploadImage, resizeImage,updateCategoryValidation, updateOneCategory)
+  .put(uploadImage, resizeImage,updateCa, updateOneCategory)
   .delete(deleteCategoryByIdValidator, deleteOneCategory);
 
 module.exports = Routes;

@@ -14,7 +14,6 @@ const {
   deleteCategoryByIdValidator,
   createCategoryValidator,
   getCategoryByIdValidator,
-  updateCategoryValidation,
 } = require("../Resuble/CategoryValidation");
 const Routes = Router();
 Routes.use("/:categoryId/question", RouetsQuestion);

@@ -12,7 +12,6 @@ const {
   QuestionValidation,
   deleteQuestionByIdValidator,
   getQuestionByIdValidator,
-  updateQuestionValidation,
 } = require("../Resuble/QuestionValidation");
 
 
@@ -23,7 +22,7 @@ Routes.route("/")
   .get( getAllQuestionService);
 Routes.route("/:id")
   .get(getQuestionByIdValidator,getOneQuestionService)
-  .put(updateQuestionValidation, updateQuestionService)
+  .put(update, updateQuestionService)
   .delete(deleteQuestionByIdValidator, deleteQuestionService);
 
 module.exports = Routes;

@@ -12,9 +12,8 @@ const {
   QuestionValidation,
   deleteQuestionByIdValidator,
   getQuestionByIdValidator,
-  updateQuestionValidation,
 } = require("../Resuble/QuestionValidation");
-
+const { updateCategoryValidation } = require("../Resuble/CategoryValidation");
 
 const Routes = Router({ mergeParams: true });
 
@@ -22,8 +21,8 @@ Routes.route("/")
   .post(createQuestionOnCategory, QuestionValidation, createQuestionService)
   .get( getAllQuestionService);
 Routes.route("/:id")
-  .get(getQuestionByIdValidator,getOneQuestionService)
-  .put(updateQuestionValidation, updateQuestionService)
+  .get(getOneQuestionService)
+  .put(updateCategoryValidation, updateQuestionService)
   .delete(deleteQuestionByIdValidator, deleteQuestionService);
 
 module.exports = Routes;

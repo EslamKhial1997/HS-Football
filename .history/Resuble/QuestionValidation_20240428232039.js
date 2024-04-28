@@ -18,10 +18,6 @@ exports.QuestionValidation = [
 
   MiddlewareValidator,
 ];
-exports.getQuestionByIdValidator = [
-  check("id").isMongoId().withMessage("Sorry ID Not Available To get"),
-  MiddlewareValidator,
-];
 exports.updateQuestionValidation = [
   check("id").isMongoId().withMessage("Sorry ID Not Available To Update"),
   body("description")
@@ -30,9 +26,6 @@ exports.updateQuestionValidation = [
       req.body.slug = slugify(val);
       return true;
     }),
-  MiddlewareValidator,
-];
-exports.deleteQuestionByIdValidator = [
-  check("id").isMongoId().withMessage("Sorry ID Not Available To Delete"),
+  check("image").optional(),
   MiddlewareValidator,
 ];

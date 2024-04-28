@@ -18,21 +18,17 @@ exports.QuestionValidation = [
 
   MiddlewareValidator,
 ];
-exports.getQuestionByIdValidator = [
+exports.getCategoryByIdValidator = [
   check("id").isMongoId().withMessage("Sorry ID Not Available To get"),
   MiddlewareValidator,
 ];
 exports.updateQuestionValidation = [
   check("id").isMongoId().withMessage("Sorry ID Not Available To Update"),
   body("description")
-    .optional()
+    .notEmpty()
     .custom((val, { req }) => {
       req.body.slug = slugify(val);
       return true;
     }),
-  MiddlewareValidator,
-];
-exports.deleteQuestionByIdValidator = [
-  check("id").isMongoId().withMessage("Sorry ID Not Available To Delete"),
   MiddlewareValidator,
 ];

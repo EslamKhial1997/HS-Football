@@ -14,7 +14,7 @@ exports.createCategoryValidator = [
   body("name").custom((val) =>
     categoryModel.findOne({ name: val }).then((Category) => {
       if (Category) {
-        return Promise.reject(new Error("Name Category Already in Used"));
+        return  new ApiError(`Sorry Can't get This ID From ID :${req.params.id}`, 404)
       }
     })
   ),
