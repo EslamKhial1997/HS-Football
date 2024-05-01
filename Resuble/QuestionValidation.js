@@ -15,6 +15,10 @@ exports.QuestionValidation = [
     .isMongoId()
     .notEmpty()
     .withMessage("required ID Category"),
+  check("questionType")
+    .isMongoId()
+    .notEmpty()
+    .withMessage("required ID Question Type"),
 
   MiddlewareValidator,
 ];

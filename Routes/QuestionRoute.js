@@ -7,6 +7,8 @@ const {
   createQuestionOnCategory,
   updateQuestionService,
   deleteQuestionService,
+  uploadImage,
+  resizeImage,
 } = require("../Services/QuestionService");
 const {
   QuestionValidation,
@@ -16,10 +18,11 @@ const {
 } = require("../Resuble/QuestionValidation");
 
 
+
 const Routes = Router({ mergeParams: true });
 
 Routes.route("/")
-  .post(createQuestionOnCategory, QuestionValidation, createQuestionService)
+  .post(uploadImage,resizeImage,createQuestionOnCategory, QuestionValidation, createQuestionService)
   .get( getAllQuestionService);
 Routes.route("/:id")
   .get(getQuestionByIdValidator,getOneQuestionService)

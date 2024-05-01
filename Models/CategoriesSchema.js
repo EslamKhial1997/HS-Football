@@ -22,7 +22,7 @@ const categorySchema = new Schema(
 );
 const ImageURL = (doc) => {
   if (doc.image) {
-    const image = `${process.env.BASE_URL}/categories/${doc.image}`;
+    const image = `${process.env.HOST_NAME}/categories/${doc.image}`;
     doc.image = image;
   }
 };

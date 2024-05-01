@@ -9,11 +9,11 @@ const sharp = require("sharp");
 
 exports.resizeImage = expressAsyncHandler(async (req, res, next) => {
   if (req.file) {
-    const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
+    const filename = `category-${uuidv4()}-${Date.now()}.png`;
     await sharp(req.file.buffer)
-      .resize(2000, 1333)
+      .resize(1500, 1500)
       .toFormat("jpeg")
-      .jpeg({ quality: 95 })
+      .jpeg({ quality: 80 })
       .toFile(`uploads/categories/${filename}`);
     req.body.image = filename;
    
