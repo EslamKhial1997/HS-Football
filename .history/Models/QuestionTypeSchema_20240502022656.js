@@ -11,22 +11,19 @@ const questionTypeSchema = new Schema(
       type: String,
       lowercase: true,
     },
-  image:{
-    type:String,
-  }
   },
   { timestamps: true }
 );
 const ImageURL = (doc) => {
   if (doc.image) {
-    const image = `${process.env.HOST_NAME}/questionType/${doc.image}`;
+    const image = `${process.env.HOST_NAME}/categories/${doc.image}`;
     doc.image = image;
   }
 };
-questionTypeSchema.post("init", (doc) => {
+QuestionSchema.post("init", (doc) => {
   ImageURL(doc);
 });
-questionTypeSchema.post("save", (doc) => {
+QuestionSchema.post("save", (doc) => {
   ImageURL(doc);
 });
 const questionTypeModel = model("QuestionType", questionTypeSchema);

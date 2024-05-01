@@ -11,9 +11,9 @@ exports.resizeImage = expressAsyncHandler(async (req, res, next) => {
   if (req.file) {
     const filename = `category-${uuidv4()}-${Date.now()}.png`;
     await sharp(req.file.buffer)
-      .resize(500, 500)
-      .toFormat("png")
-      .jpeg({ quality: 50 })
+      .resize(500, 1500)
+      .toFormat("jpeg")
+      .jpeg({ quality: 80 })
       .toFile(`uploads/categories/${filename}`);
     req.body.image = filename;
    

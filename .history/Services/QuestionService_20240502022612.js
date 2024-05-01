@@ -9,7 +9,7 @@ exports.resizeImage = expressAsyncHandler(async (req, res, next) => {
   if (req.file) {
     const filename = `question-${uuidv4()}-${Date.now()}.png`;
     await sharp(req.file.buffer)
-      .resize(500, 500)
+      .resize(1500, 1500)
       .toFormat("png")
       .jpeg({ quality: 50 })
       .toFile(`uploads/question/${filename}`);

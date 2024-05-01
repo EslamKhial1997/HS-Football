@@ -5,13 +5,11 @@ const {
   getOneQuestionType,
   updateOneQuestionType,
   deleteOneQuestionType,
-  uploadImage,
-  resizeImage,
 } = require("../Services/QuestionTypeServer");
 
 const Routes = Router();
 
-Routes.route("/").post(uploadImage,resizeImage,createQuestionTypeService).get(getAllQuestionType);
+Routes.route("/").post(createQuestionTypeService).get(getAllQuestionType);
 Routes.route("/:id")
   .get(getOneQuestionType)
   .put(updateOneQuestionType)

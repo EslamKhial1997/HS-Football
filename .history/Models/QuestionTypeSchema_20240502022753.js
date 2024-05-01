@@ -12,7 +12,7 @@ const questionTypeSchema = new Schema(
       lowercase: true,
     },
   image:{
-    type:String,
+    type:S
   }
   },
   { timestamps: true }

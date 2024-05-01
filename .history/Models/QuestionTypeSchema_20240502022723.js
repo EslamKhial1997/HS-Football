@@ -11,9 +11,6 @@ const questionTypeSchema = new Schema(
       type: String,
       lowercase: true,
     },
-  image:{
-    type:String,
-  }
   },
   { timestamps: true }
 );
@@ -26,7 +23,7 @@ const ImageURL = (doc) => {
 questionTypeSchema.post("init", (doc) => {
   ImageURL(doc);
 });
-questionTypeSchema.post("save", (doc) => {
+QuestionSchema.post("save", (doc) => {
   ImageURL(doc);
 });
 const questionTypeModel = model("QuestionType", questionTypeSchema);

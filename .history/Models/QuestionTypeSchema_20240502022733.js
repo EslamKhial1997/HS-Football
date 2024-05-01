@@ -11,9 +11,7 @@ const questionTypeSchema = new Schema(
       type: String,
       lowercase: true,
     },
-  image:{
-    type:String,
-  }
+    image:St
   },
   { timestamps: true }
 );

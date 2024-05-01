@@ -6,7 +6,6 @@ const {
   updateOneQuestionType,
   deleteOneQuestionType,
   uploadImage,
-  resizeImage,
 } = require("../Services/QuestionTypeServer");
 
 const Routes = Router();
