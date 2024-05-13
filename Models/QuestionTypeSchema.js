@@ -19,7 +19,7 @@ const questionTypeSchema = new Schema(
 );
 const ImageURL = (doc) => {
   if (doc.image) {
-    const image = `${process.env.HOST_NAME}/questionType/${doc.image}`;
+    const image = `${process.env.SERVER_IP}/questionType/${doc.image}`;
     doc.image = image;
   }
 };

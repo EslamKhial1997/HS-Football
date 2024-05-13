@@ -36,7 +36,7 @@ class APIFeatures {
   }
 
   paginate() {
-    const limit = this.queryParams.limit || 20;
+    const limit = this.queryParams.limit || 100000;
     const page = this.queryParams.page || 1;
     const skip = (page - 1) * limit;
 
